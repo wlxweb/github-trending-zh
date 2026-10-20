@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GitHub 今日热榜 · 2026年10月20日 17:39</title>
+<style>
+:root{--bg:#f6f8fa;--card:#fff;--fg:#1f2328;--muted:#656d76;--border:#d0d7de;--accent:#0969da;--chip:#ddf4ff;--chipfg:#0550ae;--hot:#cf222e;--shadow:0 1px 3px rgba(31,35,40,.08),0 8px 24px rgba(31,35,40,.04)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0d1117;--card:#161b22;--fg:#e6edf3;--muted:#8d96a0;--border:#30363d;--accent:#4493f8;--chip:#122d4f;--chipfg:#79c0ff;--hot:#ff7b72;--shadow:none}}
+:root[data-theme=dark]{--bg:#0d1117;--card:#161b22;--fg:#e6edf3;--muted:#8d96a0;--border:#30363d;--accent:#4493f8;--chip:#122d4f;--chipfg:#79c0ff;--hot:#ff7b72;--shadow:none}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC","Noto Sans SC",sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:32px 20px 60px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:20px}
+h1{margin:0;font-size:30px;letter-spacing:.5px}
+h1 span{background:linear-gradient(90deg,#f78166,#d2a8ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.meta{color:var(--muted);font-size:14px}
+.meta a{color:var(--accent);text-decoration:none}
+.toolbar{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:10px;padding:12px 0;background:var(--bg);margin-bottom:8px}
+.toolbar input,.toolbar select,.toolbar button{font:inherit;font-size:14px;color:var(--fg);background:var(--card);border:1px solid var(--border);border-radius:8px;padding:8px 12px}
+.toolbar input{flex:1 1 240px}
+.toolbar button{cursor:pointer}
+.toolbar input:focus,.toolbar select:focus{outline:2px solid var(--accent);outline-offset:-1px}
+.count{color:var(--muted);font-size:13px;margin:4px 0 12px}
+.card{display:grid;grid-template-columns:48px 1fr;gap:4px 16px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin-bottom:14px;box-shadow:var(--shadow);transition:transform .15s,border-color .15s}
+.card:hover{border-color:var(--accent);transform:translateY(-1px)}
+.rank{grid-row:span 6;font-size:26px;font-weight:700;color:var(--muted);text-align:center;font-variant-numeric:tabular-nums}
+.rank.top{color:var(--hot)}
+.name{font-size:19px;font-weight:600;word-break:break-word}
+.name a{color:var(--accent);text-decoration:none}
+.name a:hover{text-decoration:underline}
+.name .owner{font-weight:400}
+.tagline{font-size:16px;font-weight:600;margin-top:2px}
+.summary{margin:6px 0 4px;font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.tag{background:var(--chip);color:var(--chipfg);font-size:12px;padding:2px 10px;border-radius:999px}
+.orig{color:var(--muted);font-size:13px;font-style:italic;margin:2px 0 6px}
+.stats{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:var(--muted);align-items:center}
+.stats b{color:var(--fg);font-weight:600;font-variant-numeric:tabular-nums}
+.stats .today b{color:var(--hot)}
+.dot{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:5px;vertical-align:-1px;border:1px solid rgba(127,127,127,.3)}
+.empty{text-align:center;color:var(--muted);padding:40px}
+footer{color:var(--muted);font-size:12px;text-align:center;margin-top:30px}
+@media (max-width:600px){h1{font-size:24px}.card{grid-template-columns:1fr;padding:16px}.rank{grid-row:auto;text-align:left;font-size:18px}.rank::before{content:"#"}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div>
+    <h1>🔥 <span>GitHub 今日热榜</span></h1>
+    <div class="meta">数据抓取时间：2026年10月20日 17:39（北京时间） · 来源：<a href="https://github.com/trending" target="_blank" rel="noopener">github.com/trending</a>（每日 · 全部语言）</div>
+  </div>
+  <button id="theme" title="切换明暗模式" style="font:inherit;font-size:14px;cursor:pointer;color:var(--fg);background:var(--card);border:1px solid var(--border);border-radius:8px;padding:8px 12px">🌓 主题</button>
+</header>
+<div class="toolbar">
+  <input id="q" type="search" placeholder="搜索项目名、描述、中文简介或标签…" aria-label="搜索">
+  <select id="lang" aria-label="语言筛选"><option value="">全部语言</option></select>
+  <select id="sort" aria-label="排序">
+    <option value="rank">按热榜排名</option>
+    <option value="stars_today">按今日新增星标</option>
+    <option value="stars">按总星标</option>
+    <option value="forks">按 Fork 数</option>
+  </select>
+</div>
+<div class="count" id="count"></div>
+<main id="list"></main>
+<footer>中文简介依据各项目的官方描述与 README 撰写 · 页面为静态单文件，可离线打开</footer>
+</div>
+<script id="data" type="application/json">{"fetched_at": "2026-10-20T17:39:46+08:00", "fetched_at_display": "2026年10月20日 17:39", "source": "https://github.com/trending?since=daily", "repos": [{"rank": 1, "owner": "MadsLorentzen", "name": "ai-job-search", "full_name": "MadsLorentzen/ai-job-search", "url": "https://github.com/MadsLorentzen/ai-job-search", "description": "The job search that runs on your machine. AI job application framework built on Claude Code: evaluate postings, tailor CVs, write cover letters, prep interviews. Fork it and own it.", "language": "Python", "language_color": "#3572A5", "stars": 58719, "forks": 18485, "stars_today": 3856, "zh_tagline": "在本地运行、基于 Claude Code 的 AI 求职助手框架", "zh_summary": "一个基于 Claude Code 的 AI 求职工作流框架：fork 后填写个人资料，即可让 Claude 评估职位、定制简历、撰写求职信并辅助面试准备。作者在被裁员后用它完成了自己的求职并成功入职，所有流程（如 /scrape、/apply、/interview）都在本机运行。适合希望用 AI 系统化、批量化提升求职效率的求职者。", "zh_tags": ["求职", "Claude Code", "简历定制", "本地运行"]}, {"rank": 2, "owner": "anomalyco", "name": "opencode", "full_name": "anomalyco/opencode", "url": "https://github.com/anomalyco/opencode", "description": "The open source coding agent.", "language": "TypeScript", "language_color": "#3178c6", "stars": 218271, "forks": 29155, "stars_today": 1311, "zh_tagline": "开源的 AI 编程智能体", "zh_summary": "OpenCode 是一个开源的 AI coding agent，可在终端中协助开发，支持 npm、brew、pacman 等多种安装方式。内置可用 Tab 切换的 build（完全权限开发）与 plan（只读分析、编辑需授权）两种 agent，另有用于复杂搜索和多步任务的 general 子代理。适合想要开源、可自由配置的 AI 编程助手的开发者。", "zh_tags": ["AI 编程", "Coding Agent", "终端工具", "开源"]}, {"rank": 3, "owner": "akitaonrails", "name": "ai-memory", "full_name": "akitaonrails/ai-memory", "url": "https://github.com/akitaonrails/ai-memory", "description": "Solution for long term memory for agent coding CLIs and to facilitate handoff between different agent vendors", "language": "Rust", "language_color": "#dea584", "stars": 11672, "forks": 827, "stars_today": 666, "zh_tagline": "跨 AI 编程工具共享的长期记忆与任务交接", "zh_summary": "ai-memory 为 AI 编程智能体提供长期记忆：Claude Code、Codex、Cursor、Gemini CLI、OpenCode 等二十多种工具共享同一份记忆。中途退出一个 agent、换另一个 agent 打开同一目录，即可通过类型化的 handoff 协议接续进度、已失败的尝试和未决问题，还能跨项目沉淀个人工作习惯。适合在多个 AI 编程工具或团队成员之间切换协作的开发者。", "zh_tags": ["AI 记忆", "Agent 交接", "Rust", "开发者工具"]}, {"rank": 4, "owner": "Comfy-Org", "name": "ComfyUI", "full_name": "Comfy-Org/ComfyUI", "url": "https://github.com/Comfy-Org/ComfyUI", "description": "The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface. The fastest local inference engine in the world.", "language": "Python", "language_color": "#3572A5", "stars": 140224, "forks": 16615, "stars_today": 1011, "zh_tagline": "模块化节点式的 AI 图像/视频生成引擎", "zh_summary": "ComfyUI 是一款基于节点图（graph/nodes）界面的扩散模型 GUI、API 与后端，可用于生成图像、视频、3D 模型和音频等内容。它针对本地消费级硬件高度优化，借助异步权重流式加载，可在约 4GB 显存 + 8GB 内存上运行大型开源模型，并支持 Windows、Linux、macOS 及云端。适合需要精细控制模型与参数的创作者及需要集成生产流水线的团队。", "zh_tags": ["AIGC", "扩散模型", "节点工作流", "本地推理"]}, {"rank": 5, "owner": "ruvnet", "name": "ruflo", "full_name": "ruvnet/ruflo", "url": "https://github.com/ruvnet/ruflo", "description": "🌊 The original agent harness. Deploy intelligent multi-player swarms, coordinate autonomous workflows, and build conversational AI systems. Features adaptive memory, self-learning intelligence, federation, vector RAG integration, and native Claude Code / Codex / Hermes and many more Integrated", "language": "TypeScript", "language_color": "#3178c6", "stars": 77462, "forks": 9120, "stars_today": 564, "zh_tagline": "面向 Claude Code 与 Codex 的多智能体编排平台", "zh_summary": "Ruflo 是一个面向 Claude Code 和 Codex 的 agent meta-harness，用于部署多智能体 swarm、协调自主工作流并构建对话式 AI 系统。它以 Claude Code 插件（core、console、mods）或 MCP server 形式接入，提供可视化控制台、路由与策略控制，并具备自适应记忆和向量 RAG 集成等能力。适合想在现有 AI 编程工具之上编排复杂多智能体任务的开发者。", "zh_tags": ["多智能体", "Agent 编排", "MCP", "Claude Code"]}, {"rank": 6, "owner": "stablyai", "name": "orca", "full_name": "stablyai/orca", "url": "https://github.com/stablyai/orca", "description": "Orca is the place for working with a fleet of agents (e.g. Grok Bot, Claude Code). Run any coding agent with your own subscription. Available on desktop, mobile and remote runtime.", "language": "TypeScript", "language_color": "#3178c6", "stars": 98867, "forks": 6299, "stars_today": 1590, "zh_tagline": "并行管理多个 AI 编程智能体的编排工作台", "zh_summary": "Orca 是一个 AI 编排器，可并排运行 Codex、Claude Code、OpenCode 等编程 agent，每个 agent 在独立的 git worktree 中工作并统一追踪，便于对比结果、合并最优方案。它还提供高性能终端分屏、点选 UI 元素送入提示词的 Design Mode、GitHub/Linear 集成、SSH 远程 worktree 以及手机端监控。适合需要同时驱动多个编码 agent 的开发者，可使用自己的订阅。", "zh_tags": ["AI 编程", "Git Worktree", "桌面应用", "多 Agent"]}, {"rank": 7, "owner": "headroomlabs-ai", "name": "headroom", "full_name": "headroomlabs-ai/headroom", "url": "https://github.com/headroomlabs-ai/headroom", "description": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95% fewer tokens for JSON, same answers. Library, proxy, MCP server.", "language": "Python", "language_color": "#3572A5", "stars": 76468, "forks": 5937, "stars_today": 310, "zh_tagline": "在送入 LLM 前压缩上下文，大幅节省 Token", "zh_summary": "Headroom 会在工具输出、日志、RAG 片段、文件和对话历史送达 LLM 之前对其进行本地压缩，在保持回答不变的前提下显著减少 token 用量（编程 agent 约少 20%，JSON 可少 60–95%）。它可作为 Python/TypeScript 库、零改代码的代理（proxy）、MCP server 使用，也能一条命令包装 Claude Code、Codex、Cursor 等 agent。适合希望降低 LLM 成本与上下文占用的开发者和团队。", "zh_tags": ["Token 压缩", "LLM", "MCP", "成本优化"]}, {"rank": 8, "owner": "withmarbleapp", "name": "os-taxonomy", "full_name": "withmarbleapp/os-taxonomy", "url": "https://github.com/withmarbleapp/os-taxonomy", "description": "", "language": "JavaScript", "language_color": "#f1e05a", "stars": 6396, "forks": 1033, "stars_today": 284, "zh_tagline": "开放的小学阶段知识点图谱与先修关系数据集", "zh_summary": "Marble Skill Taxonomy 是一个开放的结构化数据集，将小学阶段儿童的学习内容拆解为 1,591 个细粒度“微知识点”，并以 3,225 条先修依赖构成有向无环图。每个知识点含描述、掌握标准、年龄范围，并对齐 NGSS、Common Core、英国国家课程等标准，部分还附有教学研究资料。适合教育科技开发者、课程设计者和教育研究者使用。", "zh_tags": ["教育", "知识图谱", "课程标准", "开放数据"]}, {"rank": 9, "owner": "Kruk2", "name": "jasna", "full_name": "Kruk2/jasna", "url": "https://github.com/Kruk2/jasna", "description": "Video restoration tool", "language": "Python", "language_color": "#3572A5", "stars": 3163, "forks": 233, "stars_today": 498, "zh_tagline": "在本地 GPU 上运行的视频/图片马赛克修复工具", "zh_summary": "Jasna 是一款免费的视频修复工具，能自动找出视频和图片中的马赛克区域并进行修复，画面其他部分不受影响。它提供简单的图形界面和命令行，内置快速的 BasicVSR++ 模型（免费）和更精细的 LTX 模型（支持者专享，仅 NVIDIA），支持片段编辑、VR180 视频及实时播放修复。适合拥有 NVIDIA（或实验性支持 AMD）显卡、需要本地修复视频的用户。", "zh_tags": ["视频修复", "GPU", "计算机视觉", "桌面工具"]}, {"rank": 10, "owner": "HKUDS", "name": "CLI-Anything", "full_name": "HKUDS/CLI-Anything", "url": "https://github.com/HKUDS/CLI-Anything", "description": "\"CLI-Anything: Making ALL Software Agent-Native\" -- CLI-Hub: https://clianything.cc/", "language": "Python", "language_color": "#3572A5", "stars": 55498, "forks": 5001, "stars_today": 606, "zh_tagline": "让任意软件都能被 AI Agent 通过 CLI 调用", "zh_summary": "CLI-Anything 旨在让“所有软件都 Agent 原生”：为各类软件生成结构化、可自描述、输出 JSON 的命令行接口，让 Claude Code、Cursor 等 AI agent 能直接操作这些软件。项目提供 CLI-Hub 包管理器（pip install cli-anything-hub）来浏览和安装社区构建的 CLI，也可用插件中的 7 阶段 harness 生成器为新软件构建 CLI。适合希望扩展 AI agent 能力边界的开发者和自动化工程师。", "zh_tags": ["AI Agent", "CLI", "自动化", "工具生态"]}, {"rank": 11, "owner": "anthropics", "name": "claude-code", "full_name": "anthropics/claude-code", "url": "https://github.com/anthropics/claude-code", "description": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands.", "language": "TypeScript", "language_color": "#3178c6", "stars": 152854, "forks": 27155, "stars_today": 167, "zh_tagline": "Anthropic 官方的终端 AI 编程助手", "zh_summary": "Claude Code 是 Anthropic 推出的 agentic 编程工具，运行在终端中并理解你的代码库，可通过自然语言执行日常任务、解释复杂代码、处理 git 工作流。它支持在终端、IDE 中使用，或在 GitHub 上 @claude 调用，本仓库还包含若干扩展命令和 agent 的插件。适合希望用自然语言提升日常开发效率的开发者。", "zh_tags": ["AI 编程", "终端工具", "Anthropic", "Git"]}, {"rank": 12, "owner": "shiyu-coder", "name": "Kronos", "full_name": "shiyu-coder/Kronos", "url": "https://github.com/shiyu-coder/Kronos", "description": "Kronos: A Foundation Model for the Language of Financial Markets", "language": "Python", "language_color": "#3572A5", "stars": 41962, "forks": 6957, "stars_today": 363, "zh_tagline": "首个面向金融 K 线的开源基础模型", "zh_summary": "Kronos 是一个专为金融市场 K 线（OHLCV）序列预训练的 decoder-only 基础模型家族，训练数据来自全球 45 个以上交易所，相关论文已被 AAAI 2026 接收。它先用专门的 tokenizer 将连续 K 线数据量化为分层离散 token，再用自回归 Transformer 预训练，可统一服务于多种量化任务，并提供微调脚本和 Hugging Face 上的多规格模型。适合量化研究者和金融时间序列预测方向的开发者。", "zh_tags": ["量化金融", "基础模型", "时间序列", "Transformer"]}]}</script>
+<script>
+const D=JSON.parse(document.getElementById('data').textContent);const R=D.repos;
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt=n=>n.toLocaleString('zh-CN');
+const langs=[...new Set(R.map(r=>r.language).filter(Boolean))].sort();
+for(const l of langs){const c=R.filter(r=>r.language===l).length;$('#lang').insertAdjacentHTML('beforeend',`<option value="${esc(l)}">${esc(l)} (${c})</option>`)}
+if(R.some(r=>!r.language))$('#lang').insertAdjacentHTML('beforeend','<option value="__none">未标注语言</option>');
+function card(r){
+  const lang=r.language?`<span><span class="dot" style="background:${esc(r.language_color||'#8b949e')}"></span>${esc(r.language)}</span>`:'<span>未标注语言</span>';
+  return `<article class="card">
+  <div class="rank ${r.rank<=3?'top':''}">${r.rank}</div>
+  <div class="name"><a href="${esc(r.url)}" target="_blank" rel="noopener"><span class="owner">${esc(r.owner)} / </span>${esc(r.name)}</a></div>
+  ${r.zh_tagline?`<div class="tagline">${esc(r.zh_tagline)}</div>`:''}
+  ${r.zh_summary?`<p class="summary">${esc(r.zh_summary)}</p>`:''}
+  ${r.zh_tags&&r.zh_tags.length?`<div class="tags">${r.zh_tags.map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>`:''}
+  ${r.description?`<div class="orig">${esc(r.description)}</div>`:''}
+  <div class="stats">${lang}<span>⭐ 星标 <b>${fmt(r.stars)}</b></span><span>🍴 Fork <b>${fmt(r.forks)}</b></span><span class="today">📈 今日新增 <b>+${fmt(r.stars_today)}</b></span></div>
+</article>`}
+function render(){
+  const q=$('#q').value.trim().toLowerCase(),l=$('#lang').value,s=$('#sort').value;
+  let list=R.filter(r=>{
+    if(l==='__none'?r.language:(l&&r.language!==l))return false;
+    if(!q)return true;
+    return [r.full_name,r.description,r.zh_tagline,r.zh_summary,(r.zh_tags||[]).join(' '),r.language].join(' ').toLowerCase().includes(q)});
+  list.sort((a,b)=>s==='rank'?a.rank-b.rank:b[s]-a[s]);
+  $('#list').innerHTML=list.length?list.map(card).join(''):'<div class="empty">没有匹配的项目</div>';
+  $('#count').textContent=`共 ${R.length} 个项目，当前显示 ${list.length} 个`;
+}
+['q','lang','sort'].forEach(id=>$('#'+id).addEventListener('input',render));
+const root=document.documentElement,saved=localStorage.getItem('gt-theme');if(saved)root.dataset.theme=saved;
+$('#theme').onclick=()=>{const dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;root.dataset.theme=dark?'light':'dark';localStorage.setItem('gt-theme',root.dataset.theme)};
+render();
+</script>
+</body>
+</html>
