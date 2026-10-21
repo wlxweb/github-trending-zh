@@ -1,70 +1,526 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#070b12" id="theme-color">
 <title>GitHub 今日热榜 · 2026年10月21日 08:05</title>
+<script>
+try{
+  var t=localStorage.getItem('gt-theme');
+  if(t==='light'||t==='dark'){
+    document.documentElement.dataset.theme=t;
+    var m=document.getElementById('theme-color');
+    if(m)m.setAttribute('content',t==='light'?'#e7eef6':'#070b12');
+  }
+}catch(e){}
+</script>
 <style>
-:root{--bg:#f6f8fa;--card:#fff;--fg:#1f2328;--muted:#656d76;--border:#d0d7de;--accent:#0969da;--chip:#ddf4ff;--chipfg:#0550ae;--hot:#cf222e;--shadow:0 1px 3px rgba(31,35,40,.08),0 8px 24px rgba(31,35,40,.04)}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0d1117;--card:#161b22;--fg:#e6edf3;--muted:#8d96a0;--border:#30363d;--accent:#4493f8;--chip:#122d4f;--chipfg:#79c0ff;--hot:#ff7b72;--shadow:none}}
-:root[data-theme=dark]{--bg:#0d1117;--card:#161b22;--fg:#e6edf3;--muted:#8d96a0;--border:#30363d;--accent:#4493f8;--chip:#122d4f;--chipfg:#79c0ff;--hot:#ff7b72;--shadow:none}
+:root{
+  color-scheme:dark;
+  --bg0:#070b12;
+  --bg1:#0c1424;
+  --glow-cyan:rgba(80,210,255,.16);
+  --glow-violet:rgba(124,107,255,.18);
+  --grid:rgba(150,200,235,.055);
+  --fg:#e7f0f7;
+  --muted:#9eb2c6;
+  --accent:#5de8ff;
+  --hot:#ff9bb8;
+  --card-solid:#121a2c;
+  --card-top:rgba(20,34,58,.97);
+  --card-bot:rgba(12,18,34,.95);
+  --border:#4d7394;
+  --line:rgba(158,196,224,.18);
+  --field:#0c1422;
+  --field-border:#4d7394;
+  --bar:rgba(7,11,18,.92);
+  --chip:rgba(93,232,255,.10);
+  --chipfg:#d7f7ff;
+  --chip-border:rgba(93,232,255,.40);
+  --focus:rgba(93,232,255,.28);
+  --rank:#93a7bb;
+  --t1:#7af0ff;
+  --t2:#d2c4ff;
+  --t3:#ffd36a;
+  --bracket:rgba(93,232,255,.8);
+  --shadow:inset 0 1px 0 rgba(190,230,255,.08),0 16px 40px rgba(0,0,0,.34);
+  --shadow-hover:inset 0 1px 0 rgba(190,230,255,.14),0 0 0 1px rgba(93,232,255,.5),0 18px 48px rgba(0,16,36,.5);
+  --title:linear-gradient(100deg,#9af6ff 0%,#e7f1ff 46%,#d4c6ff 100%);
+  --scroll:#34506c;
+  --rail:#5de8ff;
+  --today-bg:rgba(255,120,160,.12);
+  --today-border:rgba(255,155,184,.45);
+  --hero-glow:linear-gradient(135deg,rgba(93,232,255,.14),rgba(124,107,255,.08) 40%,rgba(18,26,44,.15) 72%);
+  --empty-bg:rgba(255,255,255,.02);
+  --sans:"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC","Noto Sans SC","Noto Sans","WenQuanYi Micro Hei",sans-serif;
+  --mono:"SFMono-Regular","SF Mono","JetBrains Mono","Cascadia Mono","Cascadia Code",ui-monospace,Menlo,Consolas,monospace;
+}
+:root[data-theme=light]{
+  color-scheme:light;
+  --bg0:#e7eef6;
+  --bg1:#f6f9fc;
+  --glow-cyan:rgba(0,140,190,.14);
+  --glow-violet:rgba(90,70,180,.08);
+  --grid:rgba(30,70,110,.06);
+  --fg:#102033;
+  --muted:#3e5168;
+  --accent:#0a648c;
+  --hot:#a31640;
+  --card-solid:#ffffff;
+  --card-top:rgba(255,255,255,.98);
+  --card-bot:rgba(255,255,255,.94);
+  --border:#5f7690;
+  --line:rgba(16,40,70,.12);
+  --field:#ffffff;
+  --field-border:#5f7690;
+  --bar:rgba(231,238,246,.94);
+  --chip:rgba(10,116,156,.10);
+  --chipfg:#0b5874;
+  --chip-border:rgba(10,100,140,.34);
+  --focus:rgba(10,100,140,.2);
+  --rank:#4a5e74;
+  --t1:#0a648c;
+  --t2:#5a3fa0;
+  --t3:#8a5a00;
+  --bracket:rgba(10,100,140,.75);
+  --shadow:inset 0 1px 0 rgba(255,255,255,.9),0 12px 30px rgba(16,42,74,.07);
+  --shadow-hover:inset 0 1px 0 #fff,0 0 0 1px rgba(10,100,140,.45),0 16px 36px rgba(16,42,74,.12);
+  --title:linear-gradient(100deg,#0a6e96 0%,#1d3f8f 52%,#5b3fa8 100%);
+  --scroll:#b7c5d4;
+  --rail:#0a648c;
+  --today-bg:rgba(163,22,64,.08);
+  --today-border:rgba(163,22,64,.3);
+  --hero-glow:linear-gradient(135deg,rgba(10,140,180,.12),rgba(90,70,180,.06) 42%,rgba(255,255,255,.45) 74%);
+  --empty-bg:rgba(255,255,255,.7);
+}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC","Noto Sans SC",sans-serif;line-height:1.6}
-.wrap{max-width:980px;margin:0 auto;padding:32px 20px 60px}
-header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:20px}
-h1{margin:0;font-size:30px;letter-spacing:.5px}
-h1 span{background:linear-gradient(90deg,#f78166,#d2a8ff);-webkit-background-clip:text;background-clip:text;color:transparent}
-.meta{color:var(--muted);font-size:14px}
+html,body{min-height:100%}
+body{
+  margin:0;
+  color:var(--fg);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.6;
+  background-color:var(--bg0);
+  background-image:
+    radial-gradient(1100px 520px at 8% -10%,var(--glow-cyan),transparent 56%),
+    radial-gradient(860px 460px at 100% 0%,var(--glow-violet),transparent 52%),
+    linear-gradient(180deg,var(--bg1) 0%,var(--bg0) 42%,var(--bg0));
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  background-image:
+    linear-gradient(var(--grid) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:56px 56px;
+  -webkit-mask-image:radial-gradient(ellipse at 50% 0%,#000 12%,transparent 74%);
+  mask-image:radial-gradient(ellipse at 50% 0%,#000 12%,transparent 74%);
+}
+body::after{
+  content:"";
+  position:fixed;
+  top:0;left:0;right:0;
+  height:2px;
+  z-index:20;
+  pointer-events:none;
+  background:linear-gradient(90deg,transparent,#5de8ff 30%,#b7a6ff 70%,transparent);
+}
+::selection{background:rgba(93,232,255,.32);color:#041018}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:var(--scroll);border-radius:99px;border:2px solid transparent;background-clip:padding-box}
+.skip{
+  position:absolute;
+  left:12px;top:-48px;
+  z-index:30;
+  background:var(--field);
+  color:var(--fg);
+  border:1px solid var(--accent);
+  border-radius:8px;
+  padding:8px 12px;
+  text-decoration:none;
+}
+.skip:focus{top:12px}
+.wrap{position:relative;z-index:1;max-width:1040px;margin:0 auto;padding:32px 20px 72px}
+.hero{
+  position:relative;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:16px 20px;
+  margin-bottom:16px;
+  padding:26px 26px 22px;
+  border:1px solid var(--border);
+  border-radius:18px;
+  background-color:var(--card-solid);
+  background-image:var(--hero-glow);
+  box-shadow:var(--shadow);
+}
+.hero::before,.hero::after{
+  content:"";
+  position:absolute;
+  width:14px;height:14px;
+  border:1.5px solid var(--bracket);
+  pointer-events:none;
+}
+.hero::before{top:12px;left:12px;border-right:0;border-bottom:0}
+.hero::after{right:12px;bottom:12px;border-left:0;border-top:0}
+.hero-copy{position:relative;z-index:1;min-width:min(100%,280px);flex:1 1 320px}
+.eyebrow{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin:0 0 8px;
+  color:var(--muted);
+  font-size:13px;
+}
+.eyebrow-k{
+  color:var(--accent);
+  font-family:var(--mono);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.18em;
+}
+.sep{opacity:.55}
+.pulse{
+  width:8px;height:8px;
+  border-radius:50%;
+  background:var(--accent);
+  box-shadow:0 0 0 0 rgba(93,232,255,.55);
+  animation:pulse 2.4s ease-out infinite;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(93,232,255,.5)}
+  70%{box-shadow:0 0 0 8px rgba(93,232,255,0)}
+  100%{box-shadow:0 0 0 0 rgba(93,232,255,0)}
+}
+h1{margin:0;font-size:clamp(28px,4vw,36px);font-weight:700;letter-spacing:.01em;line-height:1.25}
+h1 span{color:var(--accent)}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  h1 span{
+    background:var(--title);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+}
+.meta{margin:8px 0 0;color:var(--muted);font-size:13.5px}
 .meta a{color:var(--accent);text-decoration:none}
-.toolbar{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:10px;padding:12px 0;background:var(--bg);margin-bottom:8px}
-.toolbar input,.toolbar select,.toolbar button{font:inherit;font-size:14px;color:var(--fg);background:var(--card);border:1px solid var(--border);border-radius:8px;padding:8px 12px}
-.toolbar input{flex:1 1 240px}
-.toolbar button{cursor:pointer}
-.toolbar input:focus,.toolbar select:focus{outline:2px solid var(--accent);outline-offset:-1px}
-.count{color:var(--muted);font-size:13px;margin:4px 0 12px}
-.card{display:grid;grid-template-columns:48px 1fr;gap:4px 16px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin-bottom:14px;box-shadow:var(--shadow);transition:transform .15s,border-color .15s}
-.card:hover{border-color:var(--accent);transform:translateY(-1px)}
-.rank{grid-row:span 6;font-size:26px;font-weight:700;color:var(--muted);text-align:center;font-variant-numeric:tabular-nums}
-.rank.top{color:var(--hot)}
-.name{font-size:19px;font-weight:600;word-break:break-word}
-.name a{color:var(--accent);text-decoration:none}
-.name a:hover{text-decoration:underline}
-.name .owner{font-weight:400}
-.tagline{font-size:16px;font-weight:600;margin-top:2px}
-.summary{margin:6px 0 4px;font-size:15px}
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
-.tag{background:var(--chip);color:var(--chipfg);font-size:12px;padding:2px 10px;border-radius:999px}
-.orig{color:var(--muted);font-size:13px;font-style:italic;margin:2px 0 6px}
-.stats{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:var(--muted);align-items:center}
-.stats b{color:var(--fg);font-weight:600;font-variant-numeric:tabular-nums}
-.stats .today b{color:var(--hot)}
-.dot{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:5px;vertical-align:-1px;border:1px solid rgba(127,127,127,.3)}
-.empty{text-align:center;color:var(--muted);padding:40px}
-footer{color:var(--muted);font-size:12px;text-align:center;margin-top:30px}
-@media (max-width:600px){h1{font-size:24px}.card{grid-template-columns:1fr;padding:16px}.rank{grid-row:auto;text-align:left;font-size:18px}.rank::before{content:"#"}}
+.meta a:hover{text-decoration:underline;text-underline-offset:3px}
+.theme-btn{
+  position:relative;
+  z-index:1;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  align-self:flex-start;
+  margin-top:4px;
+  cursor:pointer;
+  color:var(--fg);
+  background:var(--field);
+  border:1px solid var(--field-border);
+  border-radius:999px;
+  padding:8px 14px;
+  font:inherit;
+  font-size:14px;
+}
+.theme-btn:hover{border-color:var(--accent);color:var(--accent)}
+.theme-glyph{
+  width:14px;height:14px;
+  border-radius:50%;
+  border:1.5px solid currentColor;
+  background:linear-gradient(90deg,currentColor 50%,transparent 50%);
+}
+.toolbar{
+  position:sticky;
+  top:12px;
+  z-index:5;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:0 0 14px;
+  padding:10px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:var(--bar);
+  -webkit-backdrop-filter:blur(16px) saturate(1.25);
+  backdrop-filter:blur(16px) saturate(1.25);
+  box-shadow:0 10px 28px rgba(0,0,0,.18);
+}
+.search{
+  flex:1 1 260px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  min-width:0;
+  color:var(--muted);
+  background:var(--field);
+  border:1px solid var(--field-border);
+  border-radius:10px;
+  padding:0 12px;
+}
+.search svg{flex:none;display:block}
+.search input{
+  flex:1;
+  min-width:0;
+  border:0;
+  outline:none;
+  background:transparent;
+  color:var(--fg);
+  font:inherit;
+  font-size:14px;
+  padding:10px 0;
+}
+.search input::placeholder{color:var(--muted);opacity:1}
+.search:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px var(--focus);color:var(--accent)}
+.select{position:relative}
+.select select{
+  appearance:none;
+  -webkit-appearance:none;
+  width:100%;
+  cursor:pointer;
+  color:var(--fg);
+  background:var(--field);
+  border:1px solid var(--field-border);
+  border-radius:10px;
+  font:inherit;
+  font-size:14px;
+  padding:10px 36px 10px 12px;
+}
+.select select:hover,.select select:focus{border-color:var(--accent)}
+.select::after{
+  content:"";
+  position:absolute;
+  right:14px;
+  top:50%;
+  width:7px;height:7px;
+  border-right:1.5px solid var(--muted);
+  border-bottom:1.5px solid var(--muted);
+  transform:translateY(-75%) rotate(45deg);
+  pointer-events:none;
+}
+select:focus,button:focus,a:focus{outline:none}
+select:focus-visible,.theme-btn:focus-visible,a:focus-visible,.skip:focus{
+  outline:2px solid var(--accent);
+  outline-offset:2px;
+}
+.count{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin:2px 2px 14px;
+  color:var(--muted);
+  font-family:var(--mono),var(--sans);
+  font-size:12px;
+  letter-spacing:.03em;
+}
+.count::before{
+  content:"";
+  width:6px;height:6px;
+  border-radius:50%;
+  background:var(--accent);
+  box-shadow:0 0 8px var(--accent);
+}
+.card{
+  position:relative;
+  display:grid;
+  grid-template-columns:76px minmax(0,1fr);
+  align-items:stretch;
+  gap:0 16px;
+  margin-bottom:14px;
+  padding:18px 20px 16px 14px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  background-color:var(--card-solid);
+  background-image:linear-gradient(180deg,var(--card-top),var(--card-bot));
+  box-shadow:var(--shadow);
+  transition:border-color .16s ease,box-shadow .16s ease,transform .16s ease;
+}
+.body{min-width:0}
+.card::before{
+  content:"";
+  position:absolute;
+  left:0;top:16px;bottom:16px;
+  width:2px;
+  border-radius:2px;
+  background:linear-gradient(180deg,transparent,var(--rail),transparent);
+  opacity:.85;
+}
+.card.t1{--rail:var(--t1)}
+.card.t2{--rail:var(--t2)}
+.card.t3{--rail:var(--t3)}
+.card.t1::before,.card.t2::before,.card.t3::before{opacity:1}
+.card:hover{border-color:var(--accent);box-shadow:var(--shadow-hover);transform:translateY(-2px)}
+.rank{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:4px;
+  padding-top:4px;
+  border-right:1px solid var(--line);
+  color:var(--rank);
+  font-family:var(--mono);
+  font-size:22px;
+  font-weight:700;
+  line-height:1;
+  font-variant-numeric:tabular-nums;
+}
+.rank .k{
+  color:var(--muted);
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.16em;
+}
+.rank.t1{color:var(--t1);text-shadow:0 0 14px rgba(122,240,255,.35)}
+.rank.t2{color:var(--t2);text-shadow:0 0 14px rgba(210,196,255,.28)}
+.rank.t3{color:var(--t3);text-shadow:0 0 14px rgba(255,211,106,.28)}
+:root[data-theme=light] .rank.t1,:root[data-theme=light] .rank.t2,:root[data-theme=light] .rank.t3{text-shadow:none}
+.name{font-size:18px;font-weight:600;line-height:1.4;overflow-wrap:anywhere}
+.name a{color:var(--fg);text-decoration:none}
+.name .owner{color:var(--muted);font-weight:500}
+.name .repo{color:var(--accent)}
+.name a:hover .repo{text-decoration:underline;text-underline-offset:3px}
+.tagline{margin-top:3px;font-size:16px;font-weight:600;line-height:1.5}
+.summary{margin:6px 0 4px;font-size:15px;line-height:1.75;overflow-wrap:break-word}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 4px}
+.tag{
+  color:var(--chipfg);
+  background:var(--chip);
+  border:1px solid var(--chip-border);
+  border-radius:999px;
+  font-size:12px;
+  line-height:1.5;
+  padding:2px 10px;
+}
+.orig{
+  margin:4px 0 2px;
+  padding-left:10px;
+  border-left:2px solid var(--line);
+  color:var(--muted);
+  font-size:13px;
+  font-style:italic;
+  line-height:1.55;
+  overflow-wrap:break-word;
+}
+.stats{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:8px;
+  margin-top:8px;
+  padding-top:10px;
+  border-top:1px solid var(--line);
+}
+.stat{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  color:var(--muted);
+  font-size:13px;
+}
+.stats b{
+  color:var(--fg);
+  font-family:var(--mono);
+  font-weight:600;
+  font-variant-numeric:tabular-nums;
+}
+.stat.today{
+  color:var(--hot);
+  background:var(--today-bg);
+  border:1px solid var(--today-border);
+  border-radius:999px;
+  padding:2px 10px;
+}
+.stat.today b{color:var(--hot)}
+@media (min-width:800px){
+  .stat.today{margin-left:auto}
+}
+.dot{
+  display:inline-block;
+  width:11px;height:11px;
+  border-radius:50%;
+  margin-right:2px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.28);
+}
+.empty{
+  color:var(--muted);
+  text-align:center;
+  padding:48px 16px;
+  border:1px dashed var(--border);
+  border-radius:16px;
+  background:var(--empty-bg);
+}
+footer{
+  margin-top:28px;
+  padding-top:16px;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:12px;
+  text-align:center;
+  letter-spacing:.02em;
+}
+main:focus{outline:none}
+@media (max-width:640px){
+  .wrap{padding:18px 14px 56px}
+  .hero{padding:18px 16px}
+  .hero::before,.hero::after{display:none}
+  .card{grid-template-columns:minmax(0,1fr);padding:16px;gap:8px}
+  .rank{
+    flex-direction:row;
+    justify-content:flex-start;
+    gap:2px;
+    padding-top:0;
+    border-right:0;
+    font-size:16px;
+  }
+  .rank .k{display:none}
+  .rank::before{content:"#"}
+  .select,.select select{width:100%}
+  .search{flex-basis:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  .pulse{animation:none}
+  .card{transition:none}
+  .card:hover{transform:none}
+}
 </style>
 </head>
 <body>
+<a class="skip" href="#list">跳到项目列表</a>
 <div class="wrap">
-<header>
-  <div>
-    <h1>🔥 <span>GitHub 今日热榜</span></h1>
-    <div class="meta">数据抓取时间：2026年10月21日 08:05（北京时间） · 来源：<a href="https://github.com/trending" target="_blank" rel="noopener">github.com/trending</a>（每日 · 全部语言）</div>
+<header class="hero">
+  <div class="hero-copy">
+    <p class="eyebrow"><span class="pulse" aria-hidden="true"></span><span class="eyebrow-k">TRENDING</span><span class="sep">/</span>每日热榜</p>
+    <h1><span>GitHub 今日热榜</span></h1>
+    <p class="meta">数据抓取时间：2026年10月21日 08:05（北京时间） · 来源：<a href="https://github.com/trending" target="_blank" rel="noopener">github.com/trending</a>（每日 · 全部语言）</p>
   </div>
-  <button id="theme" title="切换明暗模式" style="font:inherit;font-size:14px;cursor:pointer;color:var(--fg);background:var(--card);border:1px solid var(--border);border-radius:8px;padding:8px 12px">🌓 主题</button>
+  <button id="theme" class="theme-btn" type="button" title="切换明暗模式" aria-label="切换明暗模式"><span class="theme-glyph" aria-hidden="true"></span>主题</button>
 </header>
 <div class="toolbar">
-  <input id="q" type="search" placeholder="搜索项目名、描述、中文简介或标签…" aria-label="搜索">
-  <select id="lang" aria-label="语言筛选"><option value="">全部语言</option></select>
-  <select id="sort" aria-label="排序">
-    <option value="rank">按热榜排名</option>
-    <option value="stars_today">按今日新增星标</option>
-    <option value="stars">按总星标</option>
-    <option value="forks">按 Fork 数</option>
-  </select>
+  <label class="search">
+    <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="7" cy="7" r="4.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 10.5 L13.6 13.6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    <input id="q" type="search" placeholder="搜索项目名、描述、中文简介或标签…" aria-label="搜索">
+  </label>
+  <div class="select">
+    <select id="lang" aria-label="语言筛选"><option value="">全部语言</option></select>
+  </div>
+  <div class="select">
+    <select id="sort" aria-label="排序">
+      <option value="rank">按热榜排名</option>
+      <option value="stars_today">按今日新增星标</option>
+      <option value="stars">按总星标</option>
+      <option value="forks">按 Fork 数</option>
+    </select>
+  </div>
 </div>
 <div class="count" id="count"></div>
-<main id="list"></main>
+<main id="list" tabindex="-1"></main>
 <footer>中文简介依据各项目的官方描述与 README 撰写 · 页面为静态单文件，可离线打开</footer>
 </div>
 <script id="data" type="application/json">{"fetched_at": "2026-10-21T08:05:21+08:00", "fetched_at_display": "2026年10月21日 08:05", "source": "https://github.com/trending?since=daily", "repos": [{"rank": 1, "owner": "MadsLorentzen", "name": "ai-job-search", "full_name": "MadsLorentzen/ai-job-search", "url": "https://github.com/MadsLorentzen/ai-job-search", "description": "The job search that runs on your machine. AI job application framework built on Claude Code: evaluate postings, tailor CVs, write cover letters, prep interviews. Fork it and own it.", "language": "Python", "language_color": "#3572A5", "stars": 60506, "forks": 18876, "stars_today": 3861, "zh_tagline": "在本地运行、基于 Claude Code 的 AI 求职助手框架", "zh_summary": "一个基于 Claude Code 的 AI 求职工作流框架：fork 后填写个人资料，即可让 Claude 评估职位、定制简历、撰写求职信并辅助面试准备。作者在被裁员后用它完成了自己的求职并成功入职，所有流程（如 /scrape、/apply、/interview）都在本机运行。适合希望用 AI 系统化、批量化提升求职效率的求职者。", "zh_tags": ["求职", "Claude Code", "简历定制", "本地运行"]}, {"rank": 2, "owner": "cloudflare", "name": "security-audit-skill", "full_name": "cloudflare/security-audit-skill", "url": "https://github.com/cloudflare/security-audit-skill", "description": "A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings", "language": "JavaScript", "language_color": "#f1e05a", "stars": 34147, "forks": 2133, "stars_today": 1712, "zh_tagline": "Cloudflare 开源的编码智能体安全审计技能，产出经独立验证的结构化漏洞结果", "zh_summary": "一个让编码智能体变身安全审计员的 Skill，通过侦察、覆盖驱动的漏洞挖掘、候选验证、结构化输出、独立复核和报告六个阶段编排多个隔离智能体完成审计。每条发现都会交给新的验证者尝试证伪，结果以 confirmed / needs_validation / rejected 写入符合 JSON Schema 的 findings.json。它是 Cloudflare 漏洞发现系统的起点，适合想用 AI 智能体系统化审计代码仓库的安全工程师和开发者。", "zh_tags": ["安全审计", "AI 智能体", "Agent Skill", "漏洞挖掘"]}, {"rank": 3, "owner": "stablyai", "name": "orca", "full_name": "stablyai/orca", "url": "https://github.com/stablyai/orca", "description": "Orca is the place for working with a fleet of agents (e.g. Grok Bot, Claude Code). Run any coding agent with your own subscription. Available on desktop, mobile and remote runtime.", "language": "TypeScript", "language_color": "#3178c6", "stars": 99708, "forks": 6317, "stars_today": 1565, "zh_tagline": "并行管理多个 AI 编程智能体的编排工作台", "zh_summary": "Orca 是一个 AI 编排器，可并排运行 Codex、Claude Code、OpenCode 等编程 agent，每个 agent 在独立的 git worktree 中工作并统一追踪，便于对比结果、合并最优方案。它还提供高性能终端分屏、点选 UI 元素送入提示词的 Design Mode、GitHub/Linear 集成、SSH 远程 worktree 以及手机端监控。适合需要同时驱动多个编码 agent 的开发者，可使用自己的订阅。", "zh_tags": ["AI 编程", "Git Worktree", "桌面应用", "多 Agent"]}, {"rank": 4, "owner": "DietrichGebert", "name": "ponytail", "full_name": "DietrichGebert/ponytail", "url": "https://github.com/DietrichGebert/ponytail", "description": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.", "language": "JavaScript", "language_color": "#f1e05a", "stars": 169605, "forks": 9223, "stars_today": 1208, "zh_tagline": "让 AI 编码智能体像“最懒的资深工程师”一样只写必要代码的技能", "zh_summary": "Ponytail 是一个装进 AI 编码智能体的技能，原则是只写任务真正需要的代码，同时不削减校验、错误处理、安全和无障碍。它优先复用仓库已有的组件和平台能力，并提供 /ponytail-review 代码审查和 /ponytail-audit 全仓审计命令。作者在 Claude Code 上的基准测试中称代码量和成本明显下降，适合希望减少 AI 生成冗余代码的开发者。", "zh_tags": ["AI 编程", "Agent Skill", "代码审查", "Claude Code"]}, {"rank": 5, "owner": "Comfy-Org", "name": "ComfyUI", "full_name": "Comfy-Org/ComfyUI", "url": "https://github.com/Comfy-Org/ComfyUI", "description": "The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface. The fastest local inference engine in the world.", "language": "Python", "language_color": "#3572A5", "stars": 140736, "forks": 16658, "stars_today": 1206, "zh_tagline": "模块化节点式的 AI 图像/视频生成引擎", "zh_summary": "ComfyUI 是一款基于节点图（graph/nodes）界面的扩散模型 GUI、API 与后端，可用于生成图像、视频、3D 模型和音频等内容。它针对本地消费级硬件高度优化，借助异步权重流式加载，可在约 4GB 显存 + 8GB 内存上运行大型开源模型，并支持 Windows、Linux、macOS 及云端。适合需要精细控制模型与参数的创作者及需要集成生产流水线的团队。", "zh_tags": ["AIGC", "扩散模型", "节点工作流", "本地推理"]}, {"rank": 6, "owner": "ruvnet", "name": "ruflo", "full_name": "ruvnet/ruflo", "url": "https://github.com/ruvnet/ruflo", "description": "🌊 The original agent harness. Deploy intelligent multi-player swarms, coordinate autonomous workflows, and build conversational AI systems. Features adaptive memory, self-learning intelligence, federation, vector RAG integration, and native Claude Code / Codex / Hermes and many more Integrated", "language": "TypeScript", "language_color": "#3178c6", "stars": 77829, "forks": 9157, "stars_today": 684, "zh_tagline": "面向 Claude Code 与 Codex 的多智能体编排平台", "zh_summary": "Ruflo 是一个面向 Claude Code 和 Codex 的 agent meta-harness，用于部署多智能体 swarm、协调自主工作流并构建对话式 AI 系统。它以 Claude Code 插件（core、console、mods）或 MCP server 形式接入，提供可视化控制台、路由与策略控制，并具备自适应记忆和向量 RAG 集成等能力。适合想在现有 AI 编程工具之上编排复杂多智能体任务的开发者。", "zh_tags": ["多智能体", "Agent 编排", "MCP", "Claude Code"]}, {"rank": 7, "owner": "Graphify-Labs", "name": "graphify", "full_name": "Graphify-Labs/graphify", "url": "https://github.com/Graphify-Labs/graphify", "description": "Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store.", "language": "Python", "language_color": "#3572A5", "stars": 130212, "forks": 12539, "stars_today": 802, "zh_tagline": "把整个代码库及文档转换成可查询知识图谱的 AI 助手技能", "zh_summary": "Graphify 提供 /graphify 技能，可在 Claude Code、Cursor、Codex、Gemini CLI 等 AI 编码助手中把项目的代码、文档、SQL、配置、PDF 等映射成知识图谱，用图查询代替 grep 翻文件。代码部分用 tree-sitter AST 在本地确定性解析，不依赖 LLM 和向量库，每条边都标注是直接提取还是推断得出；输出可交互的 graph.html、报告和 graph.json。适合需要让 AI 助手快速理解大型代码库的开发者。", "zh_tags": ["知识图谱", "代码理解", "AI 编程", "Python"]}, {"rank": 8, "owner": "anomalyco", "name": "opencode", "full_name": "anomalyco/opencode", "url": "https://github.com/anomalyco/opencode", "description": "The open source coding agent.", "language": "TypeScript", "language_color": "#3178c6", "stars": 218892, "forks": 29209, "stars_today": 1240, "zh_tagline": "开源的 AI 编程智能体", "zh_summary": "OpenCode 是一个开源的 AI coding agent，可在终端中协助开发，支持 npm、brew、pacman 等多种安装方式。内置可用 Tab 切换的 build（完全权限开发）与 plan（只读分析、编辑需授权）两种 agent，另有用于复杂搜索和多步任务的 general 子代理。适合想要开源、可自由配置的 AI 编程助手的开发者。", "zh_tags": ["AI 编程", "Coding Agent", "终端工具", "开源"]}, {"rank": 9, "owner": "msitarzewski", "name": "agency-agents", "full_name": "msitarzewski/agency-agents", "url": "https://github.com/msitarzewski/agency-agents", "description": "A complete AI agency at your fingertips - From frontend wizards to Reddit community ninjas, from whimsy injectors to reality checkers. Each agent is a specialized expert with personality, processes, and proven deliverables.", "language": "Shell", "language_color": "#89e051", "stars": 162327, "forks": 26226, "stars_today": 562, "zh_tagline": "一整套带个性和工作流程的专业 AI 智能体角色合集", "zh_summary": "The Agency 收录了大量精心编写的 AI 智能体角色定义，覆盖前端开发、社区运营等各类职能，每个角色都包含身份设定、核心任务与工作流、技术交付物和成功指标。可以通过桌面应用或安装脚本一键装入 Claude Code、Cursor、Codex、Gemini CLI、OpenCode 等工具，也可以直接作为参考复制修改。适合想给 AI 编码助手配备专业分工角色的个人和团队。", "zh_tags": ["AI 智能体", "提示词", "Claude Code", "多工具"]}, {"rank": 10, "owner": "headroomlabs-ai", "name": "headroom", "full_name": "headroomlabs-ai/headroom", "url": "https://github.com/headroomlabs-ai/headroom", "description": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95% fewer tokens for JSON, same answers. Library, proxy, MCP server.", "language": "Python", "language_color": "#3572A5", "stars": 76744, "forks": 5957, "stars_today": 549, "zh_tagline": "在送入 LLM 前压缩上下文，大幅节省 Token", "zh_summary": "Headroom 会在工具输出、日志、RAG 片段、文件和对话历史送达 LLM 之前对其进行本地压缩，在保持回答不变的前提下显著减少 token 用量（编程 agent 约少 20%，JSON 可少 60–95%）。它可作为 Python/TypeScript 库、零改代码的代理（proxy）、MCP server 使用，也能一条命令包装 Claude Code、Codex、Cursor 等 agent。适合希望降低 LLM 成本与上下文占用的开发者和团队。", "zh_tags": ["Token 压缩", "LLM", "MCP", "成本优化"]}, {"rank": 11, "owner": "anthropics", "name": "knowledge-work-plugins", "full_name": "anthropics/knowledge-work-plugins", "url": "https://github.com/anthropics/knowledge-work-plugins", "description": "Open source repository of plugins primarily intended for knowledge workers to use in Claude Cowork", "language": "Python", "language_color": "#3572A5", "stars": 30781, "forks": 3463, "stars_today": 267, "zh_tagline": "Anthropic 开源的知识工作者插件集，让 Claude 成为各岗位专家", "zh_summary": "这是 Anthropic 为 Claude Cowork 打造、也兼容 Claude Code 的开源插件库，每个插件为某一岗位打包技能、连接器、斜杠命令和子智能体。首批开源 11 个插件，涵盖效率、销售、客服、产品、市场、法务、财务、数据、企业搜索、生物研究以及插件管理。适合希望按自己公司的工具和流程定制 Claude 的团队与知识工作者。", "zh_tags": ["Claude", "插件", "知识工作", "生产力"]}, {"rank": 12, "owner": "shiyu-coder", "name": "Kronos", "full_name": "shiyu-coder/Kronos", "url": "https://github.com/shiyu-coder/Kronos", "description": "Kronos: A Foundation Model for the Language of Financial Markets", "language": "Python", "language_color": "#3572A5", "stars": 42343, "forks": 7011, "stars_today": 733, "zh_tagline": "首个面向金融 K 线的开源基础模型", "zh_summary": "Kronos 是一个专为金融市场 K 线（OHLCV）序列预训练的 decoder-only 基础模型家族，训练数据来自全球 45 个以上交易所，相关论文已被 AAAI 2026 接收。它先用专门的 tokenizer 将连续 K 线数据量化为分层离散 token，再用自回归 Transformer 预训练，可统一服务于多种量化任务，并提供微调脚本和 Hugging Face 上的多规格模型。适合量化研究者和金融时间序列预测方向的开发者。", "zh_tags": ["量化金融", "基础模型", "时间序列", "Transformer"]}, {"rank": 13, "owner": "vllm-project", "name": "vllm", "full_name": "vllm-project/vllm", "url": "https://github.com/vllm-project/vllm", "description": "A high-throughput and memory-efficient inference and serving engine for LLMs", "language": "Python", "language_color": "#3572A5", "stars": 94428, "forks": 23672, "stars_today": 128, "zh_tagline": "高吞吐、省显存的大语言模型推理与服务引擎", "zh_summary": "vLLM 是源自加州大学伯克利分校 Sky Computing Lab 的 LLM 推理与服务库，借助 PagedAttention 显存管理、连续批处理、前缀缓存、多种量化和投机解码等技术实现高吞吐服务。它无缝对接 Hugging Face 上 200 多种模型架构，提供兼容 OpenAI 的 API 服务器，支持张量/流水线/专家并行等分布式推理以及 NVIDIA、AMD、Intel GPU 和多种 CPU、加速器。适合需要自托管部署大模型的工程师和团队。", "zh_tags": ["LLM 推理", "模型部署", "GPU", "Python"]}]}</script>
@@ -77,15 +533,19 @@ const langs=[...new Set(R.map(r=>r.language).filter(Boolean))].sort();
 for(const l of langs){const c=R.filter(r=>r.language===l).length;$('#lang').insertAdjacentHTML('beforeend',`<option value="${esc(l)}">${esc(l)} (${c})</option>`)}
 if(R.some(r=>!r.language))$('#lang').insertAdjacentHTML('beforeend','<option value="__none">未标注语言</option>');
 function card(r){
-  const lang=r.language?`<span><span class="dot" style="background:${esc(r.language_color||'#8b949e')}"></span>${esc(r.language)}</span>`:'<span>未标注语言</span>';
-  return `<article class="card">
-  <div class="rank ${r.rank<=3?'top':''}">${r.rank}</div>
-  <div class="name"><a href="${esc(r.url)}" target="_blank" rel="noopener"><span class="owner">${esc(r.owner)} / </span>${esc(r.name)}</a></div>
+  const lang=r.language?`<span class="stat"><span class="dot" style="background:${esc(r.language_color||'#8b949e')}"></span>${esc(r.language)}</span>`:'<span class="stat">未标注语言</span>';
+  const tier=r.rank<=3?' top t'+r.rank:'';
+  const n=String(r.rank).padStart(2,'0');
+  return `<article class="card${tier}">
+  <div class="rank${tier}"><span class="k">NO.</span>${n}</div>
+  <div class="body">
+  <div class="name"><a href="${esc(r.url)}" target="_blank" rel="noopener"><span class="owner">${esc(r.owner)} / </span><span class="repo">${esc(r.name)}</span></a></div>
   ${r.zh_tagline?`<div class="tagline">${esc(r.zh_tagline)}</div>`:''}
   ${r.zh_summary?`<p class="summary">${esc(r.zh_summary)}</p>`:''}
   ${r.zh_tags&&r.zh_tags.length?`<div class="tags">${r.zh_tags.map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>`:''}
   ${r.description?`<div class="orig">${esc(r.description)}</div>`:''}
-  <div class="stats">${lang}<span>⭐ 星标 <b>${fmt(r.stars)}</b></span><span>🍴 Fork <b>${fmt(r.forks)}</b></span><span class="today">📈 今日新增 <b>+${fmt(r.stars_today)}</b></span></div>
+  <div class="stats">${lang}<span class="stat">⭐ 星标 <b>${fmt(r.stars)}</b></span><span class="stat">🍴 Fork <b>${fmt(r.forks)}</b></span><span class="stat today">📈 今日新增 <b>+${fmt(r.stars_today)}</b></span></div>
+  </div>
 </article>`}
 function render(){
   const q=$('#q').value.trim().toLowerCase(),l=$('#lang').value,s=$('#sort').value;
@@ -98,8 +558,11 @@ function render(){
   $('#count').textContent=`共 ${R.length} 个项目，当前显示 ${list.length} 个`;
 }
 ['q','lang','sort'].forEach(id=>$('#'+id).addEventListener('input',render));
-const root=document.documentElement,saved=localStorage.getItem('gt-theme');if(saved)root.dataset.theme=saved;
-$('#theme').onclick=()=>{const dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;root.dataset.theme=dark?'light':'dark';localStorage.setItem('gt-theme',root.dataset.theme)};
+const root=document.documentElement,saved=localStorage.getItem('gt-theme');
+if(saved==='light'||saved==='dark')root.dataset.theme=saved;
+const syncChrome=()=>{const m=document.getElementById('theme-color');if(m)m.setAttribute('content',root.dataset.theme==='light'?'#e7eef6':'#070b12')};
+syncChrome();
+$('#theme').onclick=()=>{const dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;root.dataset.theme=dark?'light':'dark';localStorage.setItem('gt-theme',root.dataset.theme);syncChrome()};
 render();
 </script>
 </body>
