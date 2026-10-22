@@ -2,6 +2,4 @@ readmes/
 screenshot.png
 __pycache__/
 *.pyc
-
 data.json.before
-screenshot.png
