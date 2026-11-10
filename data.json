@@ -1,136 +1,10 @@
 {
-  "fetched_at": "2026-11-09T08:07:35+08:00",
-  "fetched_at_display": "2026年11月09日 08:07",
+  "fetched_at": "2026-11-10T08:06:02+08:00",
+  "fetched_at_display": "2026年11月10日 08:06",
   "source": "https://github.com/trending?since=daily",
   "repos": [
     {
       "rank": 1,
-      "owner": "sherlock-project",
-      "name": "sherlock",
-      "full_name": "sherlock-project/sherlock",
-      "url": "https://github.com/sherlock-project/sherlock",
-      "description": "Hunt down social media accounts by username across social networks",
-      "language": "Python",
-      "language_color": "#3572A5",
-      "stars": 103415,
-      "forks": 12122,
-      "stars_today": 2373,
-      "zh_tagline": "按用户名在 400 多个社交网络上查找公开账号",
-      "zh_summary": "Sherlock 是一个开源命令行工具，可根据用户名在 400 多个社交网络中检索对应的公开账号，并把找到的结果写入文本、CSV 或 Excel 文件。它支持一次查询多个用户名、限定站点、使用代理和设置超时，可通过 pipx、Docker 或发行版软件包安装。适合需要核验各平台公开账号足迹的安全研究与调查场景。",
-      "zh_tags": [
-        "社交网络",
-        "用户名检索",
-        "命令行",
-        "开源工具"
-      ]
-    },
-    {
-      "rank": 2,
-      "owner": "dsx-ai-factory",
-      "name": "nvke",
-      "full_name": "dsx-ai-factory/nvke",
-      "url": "https://github.com/dsx-ai-factory/nvke",
-      "description": "NVIDIA Kubernetes Engine (NVKE). A management plane for GPU Kubernetes on bare metal.",
-      "language": "Go",
-      "language_color": "#00ADD8",
-      "stars": 836,
-      "forks": 110,
-      "stars_today": 345,
-      "zh_tagline": "在自有 NVIDIA GPU 基础设施上运行托管 Kubernetes 的管理平面",
-      "zh_summary": "NVIDIA Kubernetes Engine（NVKE）是平台团队安装的管理平面，用于在自有 NVIDIA GPU 裸金属基础设施上创建和运维相互独立的 Kubernetes 工作负载集群，每个集群拥有自己的控制平面、etcd 与节点池。它通过 NVIDIA Infra Controller（NICo）申请机器，支持节点池的创建、伸缩与升级，并用 TPM 与 SPIFFE/SPIRE 建立节点身份。当前处于预览阶段，API 和行为可能变化，不建议用于生产，适合评估在自有 GPU 硬件上提供托管 Kubernetes 服务的团队。",
-      "zh_tags": [
-        "Kubernetes",
-        "GPU 集群",
-        "管理平面",
-        "NVIDIA"
-      ]
-    },
-    {
-      "rank": 3,
-      "owner": "milind-soni",
-      "name": "OpenMausBot",
-      "full_name": "milind-soni/OpenMausBot",
-      "url": "https://github.com/milind-soni/OpenMausBot",
-      "description": "Open-source Grok Bot alternative with a virtual machine that bots can use",
-      "language": "TypeScript",
-      "language_color": "#3178c6",
-      "stars": 18219,
-      "forks": 2532,
-      "stars_today": 1439,
-      "zh_tagline": "开源 Grok Bot 替代品：聊天应用里的本地优先 AI 机器人团队",
-      "zh_summary": "OpenMausBot 是一款开源、本地优先的桌面聊天应用，把多个 AI 机器人当作联系人来对话；每个机器人都是真正的智能体，可基于本机已安装的 Claude、Codex 或 Grok CLI 运行，并拥有独立人格、模型和一台云端或本地虚拟机。危险操作会以审批卡片征求确认，还可通过 Composio 连接 Gmail、Slack、GitHub 等 500 多款应用。提供 macOS、Windows 与 Ubuntu 客户端，适合希望自带模型订阅、把数据留在本地的用户。",
-      "zh_tags": [
-        "智能体",
-        "桌面应用",
-        "本地优先",
-        "聊天"
-      ]
-    },
-    {
-      "rank": 4,
-      "owner": "anthropics",
-      "name": "claude-quickstarts",
-      "full_name": "anthropics/claude-quickstarts",
-      "url": "https://github.com/anthropics/claude-quickstarts",
-      "description": "A collection of projects designed to help developers quickly get started with building deployable applications using the Claude API",
-      "language": "Python",
-      "language_color": "#3572A5",
-      "stars": 19402,
-      "forks": 3281,
-      "stars_today": 32,
-      "zh_tagline": "用 Claude API 快速搭建可部署应用的官方示例合集",
-      "zh_summary": "Claude Quickstarts 是 Anthropic 提供的一组入门项目，帮助开发者基于 Claude API 快速构建可定制、可部署的应用。示例覆盖客服智能体、财务数据分析、计算机与浏览器操控、自主编程智能体，以及多项 Managed Agents 场景（浏览器聊天、日程简报、知识百科、Slack 与 Linear 集成等）。适合已有 Claude API 密钥、希望对照完整项目上手各类 Claude 能力的开发者。",
-      "zh_tags": [
-        "Claude",
-        "示例项目",
-        "API",
-        "智能体"
-      ]
-    },
-    {
-      "rank": 5,
-      "owner": "vercel-labs",
-      "name": "agent-browser",
-      "full_name": "vercel-labs/agent-browser",
-      "url": "https://github.com/vercel-labs/agent-browser",
-      "description": "Browser automation CLI for AI agents",
-      "language": "Rust",
-      "language_color": "#dea584",
-      "stars": 47562,
-      "forks": 3257,
-      "stars_today": 815,
-      "zh_tagline": "给 AI 智能体用的浏览器自动化 CLI（Rust）",
-      "zh_summary": "Vercel Labs 推出的原生 Rust CLI，让 AI agent 以命令方式驱动浏览器：snapshot 把页面变成带 @ref 的可访问性树文本，再 click/fill 等逐步操作，会话在命令间保持打开。支持 Chrome for Testing、CDP 附着、MCP、skills 与多种云浏览器后端。面向需要可靠网页操作与测试的 AI agent 与自动化工作流。",
-      "zh_tags": [
-        "浏览器自动化",
-        "AI Agent",
-        "CLI",
-        "Rust"
-      ]
-    },
-    {
-      "rank": 6,
-      "owner": "meta",
-      "name": "astryx",
-      "full_name": "meta/astryx",
-      "url": "https://github.com/meta/astryx",
-      "description": "An open source design system that's fully customizable and agent ready",
-      "language": "TypeScript",
-      "language_color": "#3178c6",
-      "stars": 16673,
-      "forks": 1317,
-      "stars_today": 875,
-      "zh_tagline": "Meta 开源的可定制设计系统，同时面向人与 AI 智能体",
-      "zh_summary": "Astryx 是 Meta 内部使用八年后开源的设计系统（目前处于 Beta），基于 React 19 与 StyleX，提供 150 多个无障碍组件、品牌级主题、深色模式、现成模板和配套 CLI。使用者直接导入预构建 CSS 与带类型的 React 组件，无需构建插件或绑定特定样式库，也可用 CSS 变量定制主题。API、文档与 CLI 按同一套约定设计，方便人与 AI 助手以相同方式搭建界面。",
-      "zh_tags": [
-        "设计系统",
-        "React",
-        "组件库",
-        "智能体"
-      ]
-    },
-    {
-      "rank": 7,
       "owner": "anthropics",
       "name": "skills",
       "full_name": "anthropics/skills",
@@ -138,9 +12,9 @@
       "description": "Public repository for Agent Skills",
       "language": "Python",
       "language_color": "#3572A5",
-      "stars": 189611,
-      "forks": 22346,
-      "stars_today": 792,
+      "stars": 190929,
+      "forks": 22438,
+      "stars_today": 1038,
       "zh_tagline": "Anthropic 公开的 Agent Skills 示例与规范仓库",
       "zh_summary": "这是 Anthropic 的 Agent Skills 公开仓库：技能是包含说明、脚本和资源的文件夹，Claude 会按需加载它们，以便按可重复的方式完成文档编写、数据分析或企业流程等专项任务。仓库提供创意设计、开发测试、企业沟通等示例技能，以及支撑 Claude 文档能力的 docx/pdf/pptx/xlsx 技能，并附带规范与模板。适合想在 Claude Code、Claude.ai 或 Claude API 中使用、学习或编写自定义技能的开发者。",
       "zh_tags": [
@@ -151,7 +25,49 @@
       ]
     },
     {
-      "rank": 8,
+      "rank": 2,
+      "owner": "meta",
+      "name": "astryx",
+      "full_name": "meta/astryx",
+      "url": "https://github.com/meta/astryx",
+      "description": "An open source design system that's fully customizable and agent ready",
+      "language": "TypeScript",
+      "language_color": "#3178c6",
+      "stars": 19966,
+      "forks": 1522,
+      "stars_today": 3278,
+      "zh_tagline": "Meta 开源的可定制设计系统，同时面向人与 AI 智能体",
+      "zh_summary": "Astryx 是 Meta 内部使用八年后开源的设计系统（目前处于 Beta），基于 React 19 与 StyleX，提供 150 多个无障碍组件、品牌级主题、深色模式、现成模板和配套 CLI。使用者直接导入预构建 CSS 与带类型的 React 组件，无需构建插件或绑定特定样式库，也可用 CSS 变量定制主题。API、文档与 CLI 按同一套约定设计，方便人与 AI 助手以相同方式搭建界面。",
+      "zh_tags": [
+        "设计系统",
+        "React",
+        "组件库",
+        "智能体"
+      ]
+    },
+    {
+      "rank": 3,
+      "owner": "sherlock-project",
+      "name": "sherlock",
+      "full_name": "sherlock-project/sherlock",
+      "url": "https://github.com/sherlock-project/sherlock",
+      "description": "Hunt down social media accounts by username across social networks",
+      "language": "Python",
+      "language_color": "#3572A5",
+      "stars": 106971,
+      "forks": 12375,
+      "stars_today": 4267,
+      "zh_tagline": "按用户名在 400 多个社交网络上查找公开账号",
+      "zh_summary": "Sherlock 是一个开源命令行工具，可根据用户名在 400 多个社交网络中检索对应的公开账号，并把找到的结果写入文本、CSV 或 Excel 文件。它支持一次查询多个用户名、限定站点、使用代理和设置超时，可通过 pipx、Docker 或发行版软件包安装。适合需要核验各平台公开账号足迹的安全研究与调查场景。",
+      "zh_tags": [
+        "社交网络",
+        "用户名检索",
+        "命令行",
+        "开源工具"
+      ]
+    },
+    {
+      "rank": 4,
       "owner": "google-deepmind",
       "name": "mujoco",
       "full_name": "google-deepmind/mujoco",
@@ -159,9 +75,9 @@
       "description": "Multi-Joint dynamics with Contact. A general purpose physics simulator.",
       "language": "C++",
       "language_color": "#f34b7d",
-      "stars": 16393,
-      "forks": 1952,
-      "stars_today": 41,
+      "stars": 16892,
+      "forks": 1991,
+      "stars_today": 574,
       "zh_tagline": "面向机器人与机器学习的通用接触动力学物理引擎",
       "zh_summary": "MuJoCo（Multi-Joint dynamics with Contact）是 Google DeepMind 维护的通用物理引擎，用于快速、精确地仿真铰接结构与环境的接触交互，服务机器人、生物力学、图形动画和机器学习等研究。它提供高性能 C API、Python 绑定、Unity 插件，以及桌面与浏览器中的交互可视化。适合需要仿真多关节系统的研究者和开发者，可通过预编译二进制、pip 安装或浏览器直接上手。",
       "zh_tags": [
@@ -172,24 +88,150 @@
       ]
     },
     {
-      "rank": 9,
-      "owner": "ranxianglei",
-      "name": "billion-context",
-      "full_name": "ranxianglei/billion-context",
-      "url": "https://github.com/ranxianglei/billion-context",
-      "description": "A context-compression plugin for month-long single sessions (billions of tokens) ,small context windows (a 100K context is enough) and token savings (5x fewer tokens) .上下文压缩插件，月级长会话会话， 兼顾小窗口(100k上下文足矣)省token(省5倍token) . billion-context is all you need",
+      "rank": 5,
+      "owner": "anthropics",
+      "name": "claude-quickstarts",
+      "full_name": "anthropics/claude-quickstarts",
+      "url": "https://github.com/anthropics/claude-quickstarts",
+      "description": "A collection of projects designed to help developers quickly get started with building deployable applications using the Claude API",
+      "language": "Python",
+      "language_color": "#3572A5",
+      "stars": 20001,
+      "forks": 3310,
+      "stars_today": 551,
+      "zh_tagline": "用 Claude API 快速搭建可部署应用的官方示例合集",
+      "zh_summary": "Claude Quickstarts 是 Anthropic 提供的一组入门项目，帮助开发者基于 Claude API 快速构建可定制、可部署的应用。示例覆盖客服智能体、财务数据分析、计算机与浏览器操控、自主编程智能体，以及多项 Managed Agents 场景（浏览器聊天、日程简报、知识百科、Slack 与 Linear 集成等）。适合已有 Claude API 密钥、希望对照完整项目上手各类 Claude 能力的开发者。",
+      "zh_tags": [
+        "Claude",
+        "示例项目",
+        "API",
+        "智能体"
+      ]
+    },
+    {
+      "rank": 6,
+      "owner": "garrytan",
+      "name": "gbrain",
+      "full_name": "garrytan/gbrain",
+      "url": "https://github.com/garrytan/gbrain",
+      "description": "Garry's Opinionated OpenClaw/Hermes Agent Brain",
       "language": "TypeScript",
       "language_color": "#3178c6",
-      "stars": 5125,
-      "forks": 404,
-      "stars_today": 460,
-      "zh_tagline": "上下文压缩插件：小窗口也能跑十亿级超长编程会话",
-      "zh_summary": "billion-context 是一款上下文压缩插件，架在任意编程助手与其模型 API 之间，用 acp-kernel 压缩重写 Anthropic/OpenAI 流；何时压缩、压缩什么由模型决定，而非硬截断。它把已消耗的对话压成分层摘要，压缩增量、可逆且对前缀缓存友好，从而让单会话连跑数天，并宣称可节省约 5 倍 token、在 100K 窗口上支撑十亿级会话。提供 bili 启动器、原生插件或 URL 前缀三种接入方式，适配 Claude Code、Codex、OpenCode 等多种客户端，适合需要超长编程会话的开发者。",
+      "stars": 32122,
+      "forks": 4764,
+      "stars_today": 216,
+      "zh_tagline": "给现有 AI 智能体一套可自托管、可跨助手共享的记忆大脑",
+      "zh_summary": "GBrain 是 Y Combinator CEO Garry Tan 开源的智能体记忆系统，用来给已在使用的 AI 助手保存带出处的事实、支持更正与撤回，并让同一份记忆在多个智能体之间共享。它可以从无需 API 密钥的关键词检索起步，再按需加上语义搜索、带引用和缺口分析的综合回答，以及类型化知识图谱。项目采用 MIT 许可、可免费自托管，也可选用 gbrain.io 托管，并通过 MCP 接入 Claude Code、Codex、ChatGPT、Cursor、Grok Bot 等客户端。",
       "zh_tags": [
-        "上下文压缩",
-        "编程助手",
-        "Token 节省",
-        "插件"
+        "智能体记忆",
+        "MCP",
+        "知识库",
+        "自托管"
+      ]
+    },
+    {
+      "rank": 7,
+      "owner": "vercel-labs",
+      "name": "agent-browser",
+      "full_name": "vercel-labs/agent-browser",
+      "url": "https://github.com/vercel-labs/agent-browser",
+      "description": "Browser automation CLI for AI agents",
+      "language": "Rust",
+      "language_color": "#dea584",
+      "stars": 48443,
+      "forks": 3299,
+      "stars_today": 916,
+      "zh_tagline": "给 AI 智能体用的浏览器自动化 CLI（Rust）",
+      "zh_summary": "Vercel Labs 推出的原生 Rust CLI，让 AI agent 以命令方式驱动浏览器：snapshot 把页面变成带 @ref 的可访问性树文本，再 click/fill 等逐步操作，会话在命令间保持打开。支持 Chrome for Testing、CDP 附着、MCP、skills 与多种云浏览器后端。面向需要可靠网页操作与测试的 AI agent 与自动化工作流。",
+      "zh_tags": [
+        "浏览器自动化",
+        "AI Agent",
+        "CLI",
+        "Rust"
+      ]
+    },
+    {
+      "rank": 8,
+      "owner": "ruvnet",
+      "name": "RuView",
+      "full_name": "ruvnet/RuView",
+      "url": "https://github.com/ruvnet/RuView",
+      "description": "π RuView turns commodity WiFi signals into real-time spatial intelligence, vital sign monitoring, and presence detection — all without a single pixel of video.",
+      "language": "Rust",
+      "language_color": "#dea584",
+      "stars": 103427,
+      "forks": 13403,
+      "stars_today": 172,
+      "zh_tagline": "用普通 WiFi 信号做无摄像头空间感知与生命体征监测",
+      "zh_summary": "RuView 是一套把普通 WiFi 无线电波转化为空间智能的开源平台：通过低成本 ESP32 采集信道状态信息（CSI），在不使用摄像头或可穿戴设备的情况下检测人员存在、呼吸与心率、活动与跌倒等。它可与 Home Assistant、Apple Home、Google Home 和 Alexa 集成，并支持在边缘硬件上本地运行。适合希望用 WiFi 做智能家居感知、健康监测或注重隐私的空间感知的开发者与研究者。",
+      "zh_tags": [
+        "WiFi感知",
+        "生命体征",
+        "智能家居",
+        "边缘计算"
+      ]
+    },
+    {
+      "rank": 9,
+      "owner": "ZhuLinsen",
+      "name": "daily_stock_analysis",
+      "full_name": "ZhuLinsen/daily_stock_analysis",
+      "url": "https://github.com/ZhuLinsen/daily_stock_analysis",
+      "description": "LLM 驱动的多市场股票智能分析系统：多源行情、实时新闻、决策看板与自动推送，支持零成本定时运行。 LLM-powered multi-market stock analysis system with multi-source market data, real-time news, decision dashboard, automated notifications, and cost-free scheduled runs.",
+      "language": "Python",
+      "language_color": "#3572A5",
+      "stars": 68817,
+      "forks": 56382,
+      "stars_today": 506,
+      "zh_tagline": "LLM 驱动的多市场自选股分析，每日生成决策看板并自动推送",
+      "zh_summary": "这是一套由大模型驱动的股票智能分析系统，覆盖 A 股、港股、美股、日股、韩股、台股和 ETF，汇聚多源行情、新闻与基本面，生成含评分、趋势、买卖点位和风险提示的决策报告。它提供 Web/桌面工作台和多种内置问股策略，并可把结果推送到企业微信、飞书、Telegram、Discord、Slack 或邮箱，也支持用 GitHub Actions 免费定时运行。适合希望自动跟踪自选股并每天收到分析简报的个人投资者。",
+      "zh_tags": [
+        "股票分析",
+        "大模型",
+        "决策看板",
+        "自动推送"
+      ]
+    },
+    {
+      "rank": 10,
+      "owner": "homeassistant-ai",
+      "name": "ha-mcp",
+      "full_name": "homeassistant-ai/ha-mcp",
+      "url": "https://github.com/homeassistant-ai/ha-mcp",
+      "description": "Configure and automate Home Assistant with Claude, ChatGPT, and other AI assistants.",
+      "language": "Python",
+      "language_color": "#3572A5",
+      "stars": 5946,
+      "forks": 293,
+      "stars_today": 31,
+      "zh_tagline": "用 Claude、ChatGPT 等 AI 助手配置和自动化 Home Assistant",
+      "zh_summary": "HA-MCP 是面向 Home Assistant 的独立 MCP 服务器，让 Claude、ChatGPT 等 AI 助手不仅能控制设备，还能创建和编辑自动化、脚本、仪表盘，并调试执行轨迹、查看历史与日志。它提供约 87 个工具，覆盖实体搜索、设备控制、区域与助手管理、备份更新等，推荐通过 HACS 或 Home Assistant Marketplace 以集成方式安装，也可使用附加组件、Docker 或 PyPI。适合希望用自然语言搭建和维护智能家居的 Home Assistant 用户。",
+      "zh_tags": [
+        "Home Assistant",
+        "MCP",
+        "智能家居",
+        "自动化"
+      ]
+    },
+    {
+      "rank": 11,
+      "owner": "milind-soni",
+      "name": "OpenMausBot",
+      "full_name": "milind-soni/OpenMausBot",
+      "url": "https://github.com/milind-soni/OpenMausBot",
+      "description": "Open-source Grok Bot alternative with a virtual machine that bots can use",
+      "language": "TypeScript",
+      "language_color": "#3178c6",
+      "stars": 19646,
+      "forks": 2692,
+      "stars_today": 1587,
+      "zh_tagline": "开源 Grok Bot 替代品：聊天应用里的本地优先 AI 机器人团队",
+      "zh_summary": "OpenMausBot 是一款开源、本地优先的桌面聊天应用，把多个 AI 机器人当作联系人来对话；每个机器人都是真正的智能体，可基于本机已安装的 Claude、Codex 或 Grok CLI 运行，并拥有独立人格、模型和一台云端或本地虚拟机。危险操作会以审批卡片征求确认，还可通过 Composio 连接 Gmail、Slack、GitHub 等 500 多款应用。提供 macOS、Windows 与 Ubuntu 客户端，适合希望自带模型订阅、把数据留在本地的用户。",
+      "zh_tags": [
+        "智能体",
+        "桌面应用",
+        "本地优先",
+        "聊天"
       ]
     }
   ]
